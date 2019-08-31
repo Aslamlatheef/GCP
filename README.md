@@ -1,8 +1,8 @@
 # GCP
 
-### BILLING >>>> Storing on BIGQUERY
+## BILLING >>>> Storing on BIGQUERY
 
-
+You can capture and save your date on S3 and also Bigquery where you can also do some analytics if you want.
 
 ### CAPTURE BILLING DATA FROM BIGQUERY and Few more examples for Billing Report.
     SELECT *  
