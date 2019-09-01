@@ -38,4 +38,38 @@ note here "3" is cost
     GROUP BY cost, product
     LIMIT 200
     
+    
+    
+    
+## CLOUD STORAGE 
+### Assiging Access
+
+### Assign IAM roles to buckets:
+
+        gsutil iam ch user:(user_email):(role1,role2) gs://(BUCKET)
+
+### Remove IAM role from bucket:
+
+        gsutil iam ch -d user:(user_email):(role1,role2) gs://(BUCKET)
+
+### Remove all roles from bucket for given user:
+
+        gsutil iam ch -d user:(user_email) gs://(BUCKET)
+
+### Assign ACL roles to buckets and objects:
+
+        gsutil acl ch -u (user_email):(O/R/W) gs://(BUCKET)
+
+### Delete all ACLs:
+
+        gsutil acl ch -d (user_email) gs://(BUCKET)
+
+### Signed URLs
+
+Create service account with key
+        
+        Upload to cloud shell (or add to current CLI environment)
+        gsutil signurl -d (time_period (10m)) (keyfile.json) gs://(BUCKET)/(object)
+
+
  ## STACK DRIVER >>>>>>>>>>>>>>>>>>>>
