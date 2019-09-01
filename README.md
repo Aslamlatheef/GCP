@@ -89,7 +89,7 @@ Create service account with key
         gsutil lifecycle set filename.json gs://&lt;BUCKET&gt;
 
 
-## DISK MANAGEMENT
+## DISK MANAGEMENT >>>>>>>>>>>
 
 ### Create disk:
 
@@ -103,7 +103,7 @@ Create service account with key
 
     gcloud compute instances attach-disk &lt;instance&gt; --disk=&lt;disk_name&gt; --zone=&lt;zone&gt;
 
-## Formatting and Mounting DISK for LINUX in GCP >>>
+## Formatting and Mounting DISK for LINUX in GCP >>>>>>
 ### View available disks:
 
     sudo lsblk
@@ -133,10 +133,27 @@ Create service account with key
 ### Extend file system to use added space:
 
     sudo resize2fs /dev/sda1
+
 ### Verify file system is resized:
 
     df -h 
 
+## VIRTUAL MACHINE IMAGE MANAGEMENT ->>>>>>>>>
+### Create image via command line:
+
+    gcloud compute images create &lt;image_name&gt; --source-disk &lt;disk_name&gt; --source-disk-zone &lt;zone&gt; --family &lt;image_family&gt;
+
+### View image family info:
+
+    gcloud compute images describe-from-family &lt;image_family&gt;
+
+#### Deprecate/set active image version:
+
+    gcloud compute images deprecate &lt;image_name&gt; --state &lt;STATE&gt;
+
+### Delete image:
+
+  gcloud compute images delete &lt;image_name&gt;
 
 
- ## STACK DRIVER >>>>>>>>>>>>>>>>>>>>
+## STACK DRIVER >>>>>>>>>>>>>>>>>>>>
