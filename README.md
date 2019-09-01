@@ -38,10 +38,7 @@ note here "3" is cost
     GROUP BY cost, product
     LIMIT 200
     
-    
-    
-    
-## CLOUD STORAGE 
+## CLOUD STORAGE  >>>>>>>>>>>>>>>>>>>> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ### Assiging Access
 
 ### Assign IAM roles to buckets:
@@ -70,6 +67,26 @@ Create service account with key
         
         Upload to cloud shell (or add to current CLI environment)
         gsutil signurl -d (time_period (10m)) (keyfile.json) gs://(BUCKET)/(object)
+
+### Check current versioning policy:
+
+        gsutil versioning get gs://&lt;BUCKET&gt;
+
+### Enable Object Versioning:
+
+        gsutil versioning set on gs://&lt;BUCKET&gt;
+
+### Check full object details in bucket:
+
+        gsutil ls -a gs://&lt;BUCKET&gt;
+
+### Download current lifecycle policy to local machine to edit:
+
+        gsutil lifecycle get gs://&lt;BUCKET&gt; > filename.json
+
+### Set new lifecycle policy after making above edits:
+
+        gsutil lifecycle set filename.json gs://&lt;BUCKET&gt;
 
 
  ## STACK DRIVER >>>>>>>>>>>>>>>>>>>>
