@@ -38,7 +38,7 @@ note here "3" is cost
     GROUP BY cost, product
     LIMIT 200
     
-## CLOUD STORAGE  >>>>>>>>>>>>>>>>>>>> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## CLOUD STORAGE  >>>>>>>>>>>>>>>>>>>
 ### Assiging Access
 
 ### Assign IAM roles to buckets:
@@ -87,6 +87,21 @@ Create service account with key
 ### Set new lifecycle policy after making above edits:
 
         gsutil lifecycle set filename.json gs://&lt;BUCKET&gt;
+
+
+## DISK MANAGEMENT
+
+### Create disk:
+
+    gcloud compute disks create &lt;DISK_NAME&gt; --type=&lt;DISK_TYPE&gt; --size=&lt;SIZE&gt; --zone=&lt;ZONE&gt;
+
+### Resize disk:
+
+    gcloud compute disks resize &lt;disk_name&gt; --size=&lt;size&gt; --zone=&lt;zone&gt;
+
+### Attach disk:
+
+    gcloud compute instances attach-disk &lt;instance&gt; --disk=&lt;disk_name&gt; --zone=&lt;zone&gt;
 
 
  ## STACK DRIVER >>>>>>>>>>>>>>>>>>>>
