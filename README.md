@@ -103,5 +103,40 @@ Create service account with key
 
     gcloud compute instances attach-disk &lt;instance&gt; --disk=&lt;disk_name&gt; --zone=&lt;zone&gt;
 
+## Formatting and Mounting DISK for LINUX in GCP >>>
+### View available disks:
+
+    sudo lsblk
+### Format attached disk:
+
+    sudo mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+### Create mount directory:
+
+    sudo mkdir -p /mnt/disks/disk2
+### Mount disk:
+
+    sudo mount -o discard,defaults /dev/sdb /mnt/disks/disk2
+
+### Set read/write permissions:
+
+    sudo chmod a+w /mnt/disks/
+    Resize existing Linux disk
+    
+### Identify the disk to resize:
+
+    sudo lsblk
+
+### Resize (grow) the partition:
+
+    sudo growpart /dev/sda 1
+
+### Extend file system to use added space:
+
+    sudo resize2fs /dev/sda1
+### Verify file system is resized:
+
+    df -h 
+
+
 
  ## STACK DRIVER >>>>>>>>>>>>>>>>>>>>
